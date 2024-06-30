@@ -3,7 +3,7 @@ from com import utils
 
 # 범위 정의
 key = 'zNSBCOfkaU4z5NBg5mcjygq8BwxvEOmWZkEd2KTlgthaLAaNQPlMIqQGLBncvjSbICAMNOkQMqczzaJxX6IAfQ=='
-years = [y for y in range(2009, 2020, 1)]
+years = [y for y in range(2006, 2024, 1)]
 
 # 수집
 utils.callHeatWave(key, years)

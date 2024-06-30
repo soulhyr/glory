@@ -82,3 +82,17 @@ def saveData(data):
         logger.info('저장 완료!')
     except Exception as e:
         logger.error('Data save Error!!')
+
+class Report:
+    def __init__(self):
+        self.report = []
+
+    def insert(self, str):
+        self.report.append(str)
+
+    def print(self):
+        print("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[ Report ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+        for r in self.report:
+            print(r)
+        print("==========================================================================")
+
