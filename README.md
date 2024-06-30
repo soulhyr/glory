@@ -66,7 +66,11 @@ We select from areas where predictions can be made with data that is easy to col
 
 ## Etc : Weather, subway-related data, crop data (by season)...
 
+## Development environment
+The settings for the development environment are as follows.
 
+* python : 3.10.6
+* pip modules : 
 
 
 
