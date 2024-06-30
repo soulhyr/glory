@@ -70,7 +70,7 @@ We select from areas where predictions can be made with data that is easy to col
 The settings for the development environment are as follows.
 
 * python : 3.10.6
-* pip modules : 
+* pip modules : streamlit, pandas, requests, rich
 
 
 
