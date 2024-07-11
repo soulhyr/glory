@@ -2,6 +2,7 @@ import os
 import json
 from com.logHelper import logger
 import requests
+from datetime import datetime
 # from datetime import datetime
 
 # 폭염 api 호출
@@ -16,11 +17,29 @@ def callHeatWave(key, years):
             fileName = 'result_' + str(y) + '.raw'
             filePath = os.path.join(folderPath, fileName)
             with open(filePath, 'w') as f:  # 기존 파일 있으면 덮어씀
-                f.write(response.content.decode('utf-8'))
+                f.write(response.content.decode('utf-8')) 
             logger.info('API 호출 결과를 저장합니다.')
                 # json.dump(response.content.decode('utf-8'), f)
     except Exception as e:
         logger.error('API Error!!')
+
+# api 호출 기능
+def callApi(key, tp, url, params):
+    folderPath = "raw"
+    try:
+        logger.info('API 를 호출합니다.')
+        response = requests.get(url, params=params)
+        dt = datetime.now().strftime("%Y%m%d%H%S%f")
+        fileName = tp + '_result_' + dt + '.raw'
+        filePath = os.path.join(folderPath, fileName)
+        with open(filePath, 'w') as f:  # 기존 파일 있으면 덮어씀
+            f.write(response.content.decode('utf-8')) 
+        logger.info('API 호출 결과를 저장합니다.')
+
+        return fileName
+    except Exception as e:
+        logger.error("API Error!!")
+
 
 # log 파일에서 데이터 추출
 def extractionData(filePath):
@@ -31,7 +50,6 @@ def extractionData(filePath):
             result = f.read()
             result = json.loads(result)
             result = result['DaysHeatWavesMajorCitiesYear'][1]['row'][0] if 'DaysHeatWavesMajorCitiesYear' in result else None
-            
         logger.info(result)
     except Exception as e:
         print('=================================')
@@ -95,4 +113,5 @@ class Report:
         for r in self.report:
             print(r)
         print("==========================================================================")
+
 
