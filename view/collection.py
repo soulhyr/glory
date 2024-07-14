@@ -9,7 +9,8 @@ def callHeatWave():
     try:
         
         params ={'serviceKey' : key, 'pageNo' : '1', 'numOfRows' : '300', 'type' : 'json', 'bas_yy' : year }
-        st.write('API 를 호출합니다.')
+        st.toast('API 를 호출합니다.')
+    # time.sleep(.5)
         response = requests.get(url, params=params)
         rst = response.content.decode('utf-8') 
         return rst
@@ -17,7 +18,7 @@ def callHeatWave():
         st.write('API Error!!', e)
 
 st.text('Collection')
-st.text('데이터를 수집하는 과정을 보여줍니다.')
+st.text('데이터를 수집하는 과정을 실시간으로 보여줍니다.')
 result = ''
 result_ext = ''
 result_json = {}
