@@ -18,7 +18,7 @@ for col in df.columns:
 report = Report()
 cities = [a for a in df.columns if a != 'bas_yy' and a != 'anat_dd_avg']
 for city in cities:
-    # lseoul 도시의 시계열 데이터 추출
+    # 도시의 시계열 데이터 추출
     time_series = df[city]
 
     # 차분 계산
