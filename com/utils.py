@@ -41,7 +41,7 @@ def callApi(key, tp, url, params):
         logger.error("API Error!!")
 
 
-# log 파일에서 데이터 추출
+# Raw 파일에서 데이터 추출
 def extractionData(filePath):
     result = None
     try:
